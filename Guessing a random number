@@ -1,0 +1,32 @@
+import random
+a = int(input("Upper limit of range : "))
+
+b = int(input("Lower limit of range: "))
+random_number = random.randrange(a, b)
+guesses = 1
+o_guess = "True"
+user_input = 0
+while user_input != random_number:
+    if guesses <= 3:
+        user_input = int(input("Guess a number"))
+
+        if user_input > random_number:
+            if guesses == 3:
+                print("Your guess number is little higher")
+            else:
+                print("Your guess is little higher, try one more time")
+        elif user_input < random_number:
+            if guesses == 3:
+                print("Your guess number is little low")
+            else:
+                print("Your guess number is little low,try one more time")
+        else:
+            print("Congratulations")
+            break
+    elif guesses > 3:
+        o_guess = "False"
+        break
+    guesses += 1
+
+if o_guess == "False":
+    print("Oops better luck next time")
